@@ -734,7 +734,15 @@ void WorldSession::HandlePlayerLogin(LoginQueryHolder * holder)
 
         SendPacket(&data);
         sLog->outStaticDebug("WORLD: Sent motd (SMSG_MOTD)");
-
+	//GM Anuncio de Conexion al Servidor
+	if(pCurrChar->isGameMaster())
+	{
+	std::string msg = "<Sistema> El GaMe MasTer ";
+	msg += pCurrChar->GetName();
+	msg += " Se acaba de conectar al servidor. ";
+	sWorld.SendWorldText(LANG_SYSTEMMESSAGE, msg.c_str());
+	sLog.outString(msg.c_str());
+	}
         // send server info
         if (sWorld->getIntConfig(CONFIG_ENABLE_SINFO_LOGIN) == 1)
             chH.PSendSysMessage(_FULLVERSION);
