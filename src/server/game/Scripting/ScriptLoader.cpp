@@ -28,6 +28,9 @@ void AddSC_example_commandscript();
 //TeleNPC2
 void AddSC_npc_teleport();
 
+//BGIC
+void AddSC_isle_of_conquest();
+
 // spells
 void AddSC_deathknight_spell_scripts();
 void AddSC_druid_spell_scripts();
@@ -570,6 +573,7 @@ void AddSC_shattrath_city();
 void AddSC_terokkar_forest();
 void AddSC_zangarmarsh();
 void AddSC_wintergrasp();
+void AddSC_isle_of_conquest();
 
 // battlegrounds
 
@@ -1209,5 +1213,7 @@ void AddCustomScripts()
     /* This is where custom scripts should be added. */
     //TeleNPC2
     AddSC_npc_teleport();
+	//BGIC
+	AddSC_isle_of_conquest();
 #endif
 }
