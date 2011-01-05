@@ -560,6 +560,11 @@ void World::LoadConfigSettings(bool reload)
     }
     ///- Read other configuration items from the config file
 
+	/// server info
+	server_version_enable     = sConfig.GetBoolDefault("ServerInfo.Version.Enable",true);
+	/// hp, mana and reset cd duel
+	duel_reset_enable         = sConfig.GetBoolDefault("Duel.reset.Enable",true);
+
     m_bool_configs[CONFIG_DURABILITY_LOSS_IN_PVP] = sConfig->GetBoolDefault("DurabilityLoss.InPvP", false);
 
     m_int_configs[CONFIG_COMPRESSION] = sConfig->GetIntDefault("Compression", 1);

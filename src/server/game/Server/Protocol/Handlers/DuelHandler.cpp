@@ -48,7 +48,13 @@ void WorldSession::HandleDuelAcceptedOpcode(WorldPacket& recvPacket)
     time_t now = time(NULL);
     pl->duel->startTimer = now;
     plTarget->duel->startTimer = now;
-
+    ///reset hp, mana and cooldown
+    pl->SetHealth(pl->GetMaxHealth());
+    plTarget->SetHealth(plTarget->GetMaxHealth());
+    if (pl->getPowerType() == POWER_MANA) pl->SetPower(POWER_MANA, pl->GetMaxPower(POWER_MANA));
+    if (plTarget->getPowerType() == POWER_MANA) plTarget->SetPower(POWER_MANA, plTarget->GetMaxPower(POWER_MANA));
+    if (!pl->GetMap()->IsDungeon())
+    { pl->RemoveArenaSpellCooldowns(); plTarget->RemoveArenaSpellCooldowns(); } ///reset cooldowns with < 15min
     pl->SendDuelCountdown(3000);
     plTarget->SendDuelCountdown(3000);
 }

@@ -708,6 +708,10 @@ class World
         static float GetMaxVisibleDistanceInInstances()     { return m_MaxVisibleDistanceInInstances;  }
         static float GetMaxVisibleDistanceInBGArenas()      { return m_MaxVisibleDistanceInBGArenas;   }
 
+	//for server information
+        inline bool Getserver_version_enable()              { return server_version_enable; }
+	//for duel reset
+	inline bool Getduel_reset_enable()                  { return duel_reset_enable; }
         static int32 GetVisibilityNotifyPeriodOnContinents(){ return m_visibility_notify_periodOnContinents; }
         static int32 GetVisibilityNotifyPeriodInInstances() { return m_visibility_notify_periodInInstances;  }
         static int32 GetVisibilityNotifyPeriodInBGArenas()  { return m_visibility_notify_periodInBGArenas;   }
@@ -803,6 +807,11 @@ class World
         static float m_MaxVisibleDistanceOnContinents;
         static float m_MaxVisibleDistanceInInstances;
         static float m_MaxVisibleDistanceInBGArenas;
+
+	// for server version show
+	bool server_version_enable;
+	// for restore hp and mana and remove cooldown after duel begin
+	bool duel_reset_enable;	
 
         static int32 m_visibility_notify_periodOnContinents;
         static int32 m_visibility_notify_periodInInstances;
