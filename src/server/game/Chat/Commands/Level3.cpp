@@ -64,6 +64,33 @@
 
 #include "AuctionHouseBot.h"
 
+
+
+
+bool ChatHandler::HandleReloadGameobjectInfoCommand(const char*)
+{
+    sLog.outString( "Loading Gameobject Data... (`gameobject_template`)" );
+    objmgr.LoadGameobjectInfo();
+    SendGlobalSysMessage("DB table `gameobject_template` (gameobject data) reloaded.");
+    return true;
+}
+     
+bool ChatHandler::HandleReloadItemPrototypesCommand(const char*) 
+{ 
+    sLog.outString( "Loading Item Data... (`item_template`)" ); 
+    objmgr.LoadItemPrototypes(); 
+    SendGlobalSysMessage("DB table `item_template` reloaded."); 
+    return true; 
+}
+
+bool ChatHandler::HandleReloadCreatureTemplatesCommand(const char*)
+{
+    sLog.outString( "Loading Creatures... (`creature_template`)" );
+    objmgr.LoadCreatureTemplates();
+    SendGlobalSysMessage("DB table `creature_template` (creature data) reloaded.");
+    return true;
+}
+
 bool ChatHandler::HandleAHBotOptionsCommand(const char *args)
 {
     uint32 ahMapID = 0;

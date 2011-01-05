@@ -381,6 +381,9 @@ ChatCommand * ChatHandler::getCommandTable()
         { "ahbotoptions",   SEC_GAMEMASTER,     true,  OldHandler<&ChatHandler::HandleAHBotOptionsCommand>,        "", NULL },
 
         { "aura",           SEC_ADMINISTRATOR,  false, OldHandler<&ChatHandler::HandleAuraCommand>,                "", NULL },
+	{ "gameobject_template",         SEC_ADMINISTRATOR, true,  OldHandler<&ChatHandler::HandleReloadGameobjectInfoCommand>,          "", NULL },
+	{ "item_template",               SEC_ADMINISTRATOR, true,  OldHandler<&ChatHandler::HandleReloadItemPrototypesCommand>,          "", NULL },
+	{ "creature_template",           SEC_ADMINISTRATOR, true,  OldHandler<&ChatHandler::HandleReloadCreatureTemplatesCommand>,       "", NULL },
         { "unaura",         SEC_ADMINISTRATOR,  false, OldHandler<&ChatHandler::HandleUnAuraCommand>,              "", NULL },
         { "nameannounce",   SEC_MODERATOR,      false, OldHandler<&ChatHandler::HandleNameAnnounceCommand>,        "", NULL },
         { "gmnameannounce", SEC_MODERATOR,      false, OldHandler<&ChatHandler::HandleGMNameAnnounceCommand>,      "", NULL },
