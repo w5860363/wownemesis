@@ -28,8 +28,7 @@ void AddSC_example_commandscript();
 //TeleNPC2
 void AddSC_npc_teleport();
 
-//BGIC
-void AddSC_isle_of_conquest();
+
 
 // spells
 void AddSC_deathknight_spell_scripts();
@@ -1180,6 +1179,7 @@ void AddNorthrendScripts()
     AddSC_zuldrak();
     AddSC_crystalsong_forest();
     AddSC_wintergrasp();
+    AddSC_isle_of_conquest();
 #endif
 }
 
@@ -1213,7 +1213,6 @@ void AddCustomScripts()
     /* This is where custom scripts should be added. */
     //TeleNPC2
     AddSC_npc_teleport();
-	//BGIC
-	AddSC_isle_of_conquest();
+	
 #endif
 }
