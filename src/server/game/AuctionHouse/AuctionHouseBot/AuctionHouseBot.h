@@ -46,6 +46,7 @@
 #define AHB_PURPLE_I    11
 #define AHB_ORANGE_I    12
 #define AHB_YELLOW_I    13
+#define AHB_GLYPH		14
 
 class AHBConfig
 {
@@ -1213,6 +1214,15 @@ private:
     uint32 DisableItemsAboveReqSkillRank;
     uint32 DisableTGsBelowReqSkillRank;
     uint32 DisableTGsAboveReqSkillRank;
+
+	bool SellGlyphs;
+	uint32 GlyphsCount;
+	uint32 DisableGlyphBelowLevel;
+	uint32 DisableGlyphAboveLevel;
+	uint32 GlyphBuyOutPriceMin;
+	uint32 GlyphBuyOutPriceMax;
+	uint32 GlyphBidPriceMin;
+	uint32 GlyphBidPriceMax;
 
     //End Filters
 

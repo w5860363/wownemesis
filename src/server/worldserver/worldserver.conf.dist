@@ -2877,6 +2877,23 @@ AuctionHouseBot.DisableItemsAboveReqSkillRank = 0
 AuctionHouseBot.DisableTGsBelowReqSkillRank = 0
 AuctionHouseBot.DisableTGsAboveReqSkillRank = 0
 
+###############################################################################
+# AUCTION HOUSE BOT GLYPHS PART
+#
+#    AuctionHouseBot.SellGlyphs
+#    Default 0 (Off)
+#
+###############################################################################
+
+AuctionHouseBot.SellGlyphs = 0
+AuctionHouseBot.GlyphsCount = 0
+AuctionHouseBot.DisableGlyphBelowLevel = 0
+AuctionHouseBot.DisableGlyphAboveLevel = 0
+AuctionHouseBot.GlyphBuyOutPriceMin = 0
+AuctionHouseBot.GlyphBuyOutPriceMax = 0
+AuctionHouseBot.GlyphBidPriceMin = 0
+AuctionHouseBot.GlyphBidPriceMax = 0
+
 ###################################################################################################
 # CONSOLE AND REMOTE ACCESS
 #
