@@ -14950,6 +14950,12 @@ void Unit::Kill(Unit *pVictim, bool durabilityLoss)
 
     if (pVictim->GetCreatureType() != CREATURE_TYPE_CRITTER)
         ProcDamageAndSpell(pVictim, PROC_FLAG_KILL, PROC_FLAG_KILLED, PROC_EX_NONE, 0);
+	/// PvP Announcer
+            if (sWorld->getConfig(CONFIG_BOOL_PVP_ANNOUNCER))
+            {
+                if (pVictim->GetTypeId() == TYPEID_PLAYER)
+                    sWorld.SendPvPAnnounce(player, ((Player*)pVictim));
+            }
 
     // Proc auras on death - must be before aura/combat remove
     pVictim->ProcDamageAndSpell(NULL, PROC_FLAG_DEATH, PROC_FLAG_NONE, PROC_EX_NONE, 0, BASE_ATTACK, 0);

@@ -90,6 +90,21 @@ bool World::m_EnableMvAnticheat = true;
 uint32 World::m_TeleportToPlaneAlarms = 50;
 uint32 World::m_MistimingAlarms = 200;
 uint32 World::m_MistimingDelta = 15000;
+
+///PVP Announcer
+void World::SendPvPAnnounce(Player* killer, Player* killed)
+{
+  std::ostringstream msg;
+  std::ostringstream KillerName;
+  std::ostringstream KilledName;
+
+  KillerName << killer->GetName();
+  KilledName << killed->GetName();
+
+  msg << "|CFFFFFF01[" << KillerName.str().c_str() << "]" << "|CFF0042FF Has Killed " << "|CFFFFFF01[" << KilledName.str().c_str() << "]" << "|CFFE55BB0 in " << "|CFFFE8A0E[" << killer->GetBaseMap()->GetMapName() << "]";
+  SendWorldText(LANG_SYSTEMMESSAGE, msg.str().c_str());
+}
+
 /// World constructor
 World::World()
 {
@@ -607,6 +622,7 @@ void World::LoadConfigSettings(bool reload)
 	duel_reset_enable         = sConfig->GetBoolDefault("Duel.reset.Enable",true);
 
     m_bool_configs[CONFIG_DURABILITY_LOSS_IN_PVP] = sConfig->GetBoolDefault("DurabilityLoss.InPvP", false);
+    m_bool_configs[CONFIG_BOOL_PVP_ANNOUNCER] = sConfig->GetBoolDefault("PvPAnnouncer.Enable", true);
 
     // movement anticheat
     m_MvAnticheatEnable                     = sConfig->GetBoolDefault("Anticheat.Movement.Enable",false);
@@ -1135,6 +1151,8 @@ void World::LoadConfigSettings(bool reload)
         sLog->outError("Visibility.Distance.Continents can't be greater %f",MAX_VISIBILITY_DISTANCE);
         m_MaxVisibleDistanceOnContinents = MAX_VISIBILITY_DISTANCE;
     }
+	
+
 
     //visibility in instances
     m_MaxVisibleDistanceInInstances = sConfig->GetFloatDefault("Visibility.Distance.Instances", DEFAULT_VISIBILITY_INSTANCE);

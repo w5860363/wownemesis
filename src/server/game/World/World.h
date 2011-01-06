@@ -88,6 +88,8 @@ enum WorldTimers
 enum WorldBoolConfigs
 {
     CONFIG_DURABILITY_LOSS_IN_PVP = 0,
+    ///PVP Announcer
+    CONFIG_BOOL_PVP_ANNOUNCER,
     CONFIG_ADDON_CHANNEL,
     CONFIG_ALLOW_PLAYER_COMMANDS,
     CONFIG_CLEAN_CHARACTER_DB,
@@ -664,7 +666,8 @@ class World
         void SendZoneMessage(uint32 zone, WorldPacket *packet, WorldSession *self = 0, uint32 team = 0);
         void SendZoneText(uint32 zone, const char *text, WorldSession *self = 0, uint32 team = 0);
         void SendServerMessage(ServerMessageType type, const char *text = "", Player* player = NULL);
-
+	///PVP Announcer
+        void SendPvPAnnounce(Player* killer, Player* killed);
         uint32 pvp_ranks[HKRANKMAX];
 
         /// Are we in the middle of a shutdown?
