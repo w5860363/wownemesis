@@ -3416,9 +3416,15 @@ bool ChatHandler::HandleBanCharacterCommand(const char *args)
         case BAN_SUCCESS:
         {
             if (atoi(duration) > 0)
+		{
                 PSendSysMessage(LANG_BAN_YOUBANNED, name.c_str(), secsToTimeString(TimeStringToSecs(duration), true).c_str(), reason);
+		sWorld.SendWorldText(LANG_BAN_WORLD_ANNOUNCE,nameOrIP.c_str(),m_session ? m_session->GetPlayerName() : "",secsToTimeString(TimeStringToSecs(duration),true).c_str(),reason);
+		}
             else
+		{
                 PSendSysMessage(LANG_BAN_YOUPERMBANNED, name.c_str(), reason);
+		sWorld.SendWorldText(LANG_PERMBAN_WORLD_ANNOUNCE,nameOrIP.c_str(),m_session ? m_session->GetPlayerName() : "",reason);
+		}
             break;
         }
         case BAN_NOTFOUND:

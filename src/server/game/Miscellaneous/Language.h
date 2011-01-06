@@ -827,7 +827,9 @@ enum TrinityStrings
     LANG_SYSTEMMESSAGE_GAMEMASTER       = 1137,
     LANG_SYSTEMMESSAGE_ADMINISTRATOR    = 1138,
     LANG_KICK_WORLD_ANNOUNCE 		= 1139,
-    // Room for more level 3              1136-1199 not used
+    LANG_BAN_WORLD_ANNOUNCE             = 1140,
+    LANG_PERMBAN_WORLD_ANNOUNCE         = 1141,
+    // Room for more level 3              1142-1199 not used
 
     // Debug commands
     LANG_CINEMATIC_NOT_EXIST            = 1200,
