@@ -42,11 +42,27 @@
 
 bool ChatHandler::HandleNameAnnounceCommand(const char* args)
 {
-    WorldPacket data;
-    if (!*args)
+  int32 strid = 0;
+
+    if(!*args)
         return false;
 
-    sWorld->SendWorldText(LANG_ANNOUNCE_COLOR, m_session->GetPlayer()->GetName(), args);
+    switch(m_session->GetSecurity()) {
+      case SEC_MODERATOR:
+        strid = LANG_SYSTEMMESSAGE_MODERATOR;
+        break;
+      case SEC_GAMEMASTER:
+        strid = LANG_SYSTEMMESSAGE_GAMEMASTER;
+        break;
+      case SEC_ADMINISTRATOR:
+        strid = LANG_SYSTEMMESSAGE_ADMINISTRATOR;
+        break;
+      default:
+        return false;
+    }
+
+    sWorld->SendWorldText(strid, m_session->GetPlayerName(), args);
+
     return true;
 }
 

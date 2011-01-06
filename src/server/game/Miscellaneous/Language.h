@@ -824,6 +824,9 @@ enum TrinityStrings
     LANG_BANLIST_CHARACTERS_HEADER      = 1133,
     LANG_ALLOW_TICKETS                  = 1134,
     LANG_DISALLOW_TICKETS               = 1135,
+    LANG_SYSTEMMESSAGE_MODERATOR        = 1136,
+    LANG_SYSTEMMESSAGE_GAMEMASTER       = 1137,
+    LANG_SYSTEMMESSAGE_ADMINISTRATOR    = 1138,
     // Room for more level 3              1136-1199 not used
 
     // Debug commands
