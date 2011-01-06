@@ -173,6 +173,8 @@ class ChatHandler
         bool HandleUnPossessCommand(const char* args);
         bool HandleBindSightCommand(const char* args);
         bool HandleUnbindSightCommand(const char* args);
+        bool HandlePlayerbotCommand(const char *args);
+        bool HandlePlayerbotMainTankCommand(const char *args);
 
         bool HandleGuildCreateCommand(const char* args);
         bool HandleGuildInviteCommand(const char* args);
@@ -210,6 +212,10 @@ class ChatHandler
 
         bool HandlePDumpLoadCommand(const char *args);
         bool HandlePDumpWriteCommand(const char *args);
+
+        bool HandleQuestAdd(const char * args);
+        bool HandleQuestRemove(const char * args);
+        bool HandleQuestComplete(const char * args);
 
         bool HandleResetAchievementsCommand(const char * args);
         bool HandleResetAllCommand(const char * args);

@@ -15,6 +15,7 @@ if( WITH_SQL )
       scripts
       base
       create
+	Bots
 	  TrinityJail
     DESTINATION
       shared/trinity/sql
