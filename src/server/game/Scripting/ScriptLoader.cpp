@@ -17,6 +17,8 @@
 
 #include "ScriptLoader.h"
 
+//VAS.AutoBalance
+void AddSC_VAS_AutoBalance();
 
 //examples
 void AddSC_example_creature();
@@ -1253,6 +1255,7 @@ void AddCustomScripts()
     AddSC_boss_zarithrian();
     AddSC_instance_ruby_sanctum();
      //guildhouse
-    AddSC_guildmaster();	
+    AddSC_guildmaster();
+    AddSC_VAS_AutoBalance();	
 #endif
 }

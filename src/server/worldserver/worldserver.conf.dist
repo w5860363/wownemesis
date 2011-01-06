@@ -3282,3 +3282,69 @@ Bot.MaxPlayerBots = 9
 Bot.PlayerBotsFly=0
 Bot.LootMethod=2
 Bot.SaveOrgLocation=0
+
+###############################################################################
+#    VAS-AutoBalance Mod
+#
+#    VAS.AutoBalance.XPlayer
+#        Set Server to level of Solo mode.
+#        Set to 0 to Disable VAS-SOLO Mod.
+#        Example: VAS.SOLO.XPlayer = 1   Should set everything for a 1 player game. Setting to 2,3..10+ should set everything to 2,3 or 10+ group. 
+#        Default set to 1
+#
+#    VAS.AutoBalance.AutoInstance
+#        Set instances to Auto change XPlayer depending on players in it. Default = 1 (1=on,0=OFF)
+#
+#	VAS.AutoBalance.PlayerChangeNotify
+#		Sets Auto Notifications to all users in Instance that player multiplier has changed. Default = 1 (1=on,0=OFF)
+#
+#	VAS.AutoBalance.Creature.Update.Timer
+#		Sets the Timer to update creatures in Instances when AutoInstance is on.  Default is 60 secs. Do NOT set to LOW!
+#
+#    VAS.AutoBalance Debug Information	
+#        0 = None
+#        1 = Errors only
+#        2 = Errors, Basic Information
+#        3 = All
+#        Default VAS.SOLO.Debug = 1
+#
+#    VAS.AutoBalance.DebugByID
+#        Set NPC ID to just Debug it.#        Default = 0
+#
+#    VAS.AutoBalance.Color
+#        in game Color of information for mod        Default = cffFF8000
+#		cffFF0000=red,cff000000=black,cffFFFF00=Yellow,cff0000FF=Blue,cffC0C0C0=Grey,cffFF8000=Orange,cff00FF40=Green,cff800000=Brown,cffC400C4=Violette
+#
+#
+#    Min.HP.Mod and Min.D.Mod
+#        Min Mod setting for HP or damage HPDefault 0.20  Damage 0.10
+#
+#
+#    VAS.Group.Modifer and VAS.Damage.Modifer
+#        Modifer setting for group and NPC Damage - Default 1.0.   See VAS-AutoBalance-Formula for whats to set it too.
+#        Setting it to 2.0 will double NPC HP's or damage. and so on.
+#
+#    VAS.AutoBalance.XX.Name
+#        Sets MobIDs to group they belong to. All 5 man mobs should go in VAS.SOLO.5.Name, 10 man groups into VAS.SOLO.10.Name and so on.
+#        Example: VAS.SOLO.10.Name = "15689,15550,16152,17521,17225,16028,29324,31099
+#
+################################################################################
+ 
+VAS.AutoBalance.XPlayer = 1
+VAS.AutoBalance.AutoInstance = 1
+VAS.AutoBalance.Debug = 1
+VAS.AutoBalance.DebugByID = 0
+VAS.AutoBalance.PlayerChangeNotify = 1
+VAS.AutoBalance.Creature.Update.Timer = 30
+VAS.AutoBalance.Color = cffFF8000
+
+Min.HP.Mod = 0.20
+Min.D.Mod = 0.10
+VAS.Group.Modifer = 1.0
+VAS.Damage.Modifer = 1.0
+ 
+VAS.AutoBalance.40.Name = "11583,16441,30057,13020,15589,14435,18192,14889,14888,14887,14890,15302,15818,15742,15741,15740,18338"
+VAS.AutoBalance.25.Name = "22997,21966,21965,21964,21806,21215,21845,19728,12397,17711,18256,18192,"
+VAS.AutoBalance.10.Name = "15689,15550,16152,17521,17225,16028,29324,31099"
+VAS.AutoBalance.5.Name = "15203,15204,15205,15305,6109,26801,30508,26799,30495,26803,30497,27859,27249"
+VAS.AutoBalance.2.Name = "25549,24558,25574,24559,25556,25557,25578,24561,25555,24555,25541,24553,25550,24554,24552,25564,15931,29373" 
