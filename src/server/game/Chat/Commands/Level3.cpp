@@ -1114,6 +1114,13 @@ bool ChatHandler::HandleListItemCommand(const char *args)
     return true;
 }
 
+	bool ChatHandler::HandleJailReloadCommand(const char* arg)
+{
+    sObjectMgr->LoadJailConf();
+    SendSysMessage(LANG_JAIL_RELOAD);
+    return true;
+}
+
 bool ChatHandler::HandleListObjectCommand(const char *args)
 {
     if (!*args)
