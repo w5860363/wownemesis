@@ -286,6 +286,9 @@ class ChatHandler
         bool HandleFreezeCommand(const char *args);
         bool HandleUnFreezeCommand(const char *args);
         bool HandleListFreezeCommand(const char* args);
+		//Gamble
+		bool HandleRouletteCommand(const char* args);
+		bool HandleGambleCommand(const char* args);
 
         bool HandleCooldownCommand(const char* args);
         bool HandleUnLearnCommand(const char* args);

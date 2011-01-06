@@ -91,6 +91,80 @@ bool ChatHandler::HandleStartCommand(const char* /*args*/)
     chr->CastSpell(chr, 8690, false);
     return true;
 }
+//Allows your players to gamble for fun and prizes
+bool ChatHandler::HandleGambleCommand(const char* args)
+{
+    Player *chr = m_session->GetPlayer();
+
+    char* px = strtok((char*)args, " ");
+
+    if (!px)
+        return false;
+
+    uint32 money = (uint32)atoi(px);
+
+    if (chr->GetMoney() < money)
+    {
+        SendSysMessage("You can not bet with money you do not have!");
+        return true;
+    }
+
+    else
+    {
+        if (money>0)
+        {
+             if (rand()%100 < 50)
+             {
+                  chr->ModifyMoney(money*2);
+                  SendSysMessage("You have won and doubled your bet");
+             }
+             else
+             {
+                  chr->ModifyMoney(-int(money));
+                  SendSysMessage("You have lost");
+             }  
+        }
+    }
+
+    return true;
+}
+
+bool ChatHandler::HandleRouletteCommand(const char* args)
+{
+    Player *chr = m_session->GetPlayer();
+
+    char* px = strtok((char*)args, " ");
+
+    if (!px)
+        return false;
+
+    uint32 money = (uint32)atoi(px);
+
+    if (chr->GetMoney() < money)
+    {
+        SendSysMessage("You can not bet with money you do not have!");
+        return true;
+    }
+
+    else
+    {
+        if (money>0)
+        {
+             if (rand()%36 < 1)
+             {
+                  chr->ModifyMoney(money*36);
+                  SendSysMessage("You have won 36 times your bet, congratulations!");
+             }
+             else
+             {
+                  chr->ModifyMoney(-int(money));
+                  SendSysMessage("You have lost");
+             }  
+        }
+    }
+
+     return true;
+ }
 
 bool ChatHandler::HandleServerInfoCommand(const char* /*args*/)
 {
