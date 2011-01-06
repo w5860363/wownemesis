@@ -15,6 +15,7 @@ if( WITH_SQL )
       scripts
       base
       create
+	GuildHouse
 	DalaranSewers
 	argent
 	Ruby_Sanctum

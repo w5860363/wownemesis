@@ -81,6 +81,8 @@ void AddSC_npc_innkeeper();
 void AddSC_npcs_special();
 void AddSC_npc_taxi();
 void AddSC_achievement_scripts();
+//guildhouse
+void AddSC_guildmaster();
 
 //Bots
 void AddSC_druid_bot();
@@ -1249,6 +1251,8 @@ void AddCustomScripts()
     AddSC_boss_halion();
     AddSC_boss_ragefire();
     AddSC_boss_zarithrian();
-    AddSC_instance_ruby_sanctum();	
+    AddSC_instance_ruby_sanctum();
+     //guildhouse
+    AddSC_guildmaster();	
 #endif
 }
