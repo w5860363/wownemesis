@@ -826,6 +826,7 @@ enum TrinityStrings
     LANG_SYSTEMMESSAGE_MODERATOR        = 1136,
     LANG_SYSTEMMESSAGE_GAMEMASTER       = 1137,
     LANG_SYSTEMMESSAGE_ADMINISTRATOR    = 1138,
+    LANG_KICK_WORLD_ANNOUNCE 		= 1139,
     // Room for more level 3              1136-1199 not used
 
     // Debug commands

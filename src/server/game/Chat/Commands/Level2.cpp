@@ -43,6 +43,21 @@
 #include "Transport.h"
 #include "TargetedMovementGenerator.h"                      // for HandleNpcUnFollowCommand
 #include "CreatureGroups.h"
+#include "WorldPacket.h"
+#include "WorldSession.h"
+#include "PlayerDump.h"
+#include "Log.h"
+#include "Guild.h"
+#include "GridNotifiersImpl.h"
+#include "CellImpl.h"
+#include "Weather.h"
+#include "PointMovementGenerator.h"
+#include "SkillDiscovery.h"
+#include "SkillExtraItems.h"
+#include "SystemConfig.h"
+#include "ItemEnchantmentMgr.h"
+#include "InstanceSaveMgr.h"
+#include "CreatureEventAIMgr.h"
 
 //mute player for some times
 bool ChatHandler::HandleMuteCommand(const char* args)
@@ -205,7 +220,15 @@ bool ChatHandler::HandleDeMorphCommand(const char* /*args*/)
 
 //kick player
 bool ChatHandler::HandleKickPlayerCommand(const char *args)
-{
+{	if (!*args)
+	return false;
+	char* cnameOrIP = strtok ((char*)args, " ");
+	if (!cnameOrIP)
+	return false;
+	std::string nameOrIP = cnameOrIP;
+	char* reason = strtok (NULL,"");
+	if(!reason)
+	return false;
     Player* target = NULL;
     std::string playerName;
     if (!extractPlayerTarget((char*)args, &target, NULL, &playerName))
@@ -226,8 +249,8 @@ bool ChatHandler::HandleKickPlayerCommand(const char *args)
         sWorld->SendWorldText(LANG_COMMAND_KICKMESSAGE, playerName.c_str());
     else
         PSendSysMessage(LANG_COMMAND_KICKMESSAGE, playerName.c_str());
-
-    target->GetSession()->KickPlayer();
+	sWorld->SendWorldText(LANG_KICK_WORLD_ANNOUNCE,nameOrIP.c_str(),m_session ? m_session->GetPlayerName() : "[SERVIDOR]",reason);
+    target->GetSession()->LogoutPlayer(false);
     return true;
 }
 
