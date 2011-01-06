@@ -15,6 +15,7 @@ if( WITH_SQL )
       scripts
       base
       create
+	DalaranSewers
 	argent
 	Ruby_Sanctum
 	Bots
