@@ -670,3 +670,4 @@ class BattlegroundIC : public Battleground
         Transport *m_GunshipA,*m_GunshipH;
 };
 #endif
+
